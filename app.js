@@ -16,11 +16,13 @@ app.get('/', (req, res)=>{
   res.send("Hello World !!!");
 })
 
+var port = process.env.PORT || 5000;
+
 mongoose
   .connect(
     process.env.MONGO_URL
   )
-  .then(() => app.listen(5000))
+  .then(() => app.listen(port))
   .then(() =>
     console.log("Connected TO Database and Listening TO Localhost 5000")
   )
